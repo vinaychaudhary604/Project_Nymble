@@ -1,0 +1,22 @@
+@startuml
+
+package "Travel Package System" {
+  [TravelPackageSystem]
+}
+
+package "Entities" {
+  [Passenger]
+  [Activity]
+  [Destination]
+}
+
+package "Business Logic" {
+  [TravelPackage]
+}
+
+[TravelPackageSystem] --> [TravelPackage]
+[TravelPackageSystem] --> [Passenger]
+[TravelPackage] --> [Activity]
+[Activity] --> [Destination]
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml
+class TravelPackage {
+  - name: String
+  - passengerCapacity: int
+  - itinerary: List<Destination>
+  - passengers: List<Passenger>
+  + addPassenger(passenger: Passenger): void
+  + printItinerary(): void
+  + printPassengerList(): void
+  + printAvailableActivities(): void
+}
+
+class Destination {
+  - name: String
+  - activities: List<Activity>
+  + getName(): String
+  + getActivities(): List<Activity>
+  + addActivity(activity: Activity): void
+}
+
+class Activity {
+  - name: String
+  - description: String
+  - cost: double
+  - capacity: int
+  - destination: Destination
+  - signedUpPassengers: List<Passenger>
+  + getName(): String
+  + getCost(): double
+  + getCapacity(): int
+  + getDestination(): Destination
+  + signUpPassenger(passenger: Passenger): boolean
+  + getSpacesAvailable(): int
+  + getDescription(): String
+}
+
+class Passenger {
+  - name: String
+  - number: String
+  - type: String
+  - balance: double
+  - activities: List<Activity>
+  + getName(): String
+  + getNumber(): String
+  + getType(): String
+  + getBalance(): double
+  + getActivities(): List<Activity>
+  + signUpActivity(activity: Activity): void
+  + printDetails(): void
+}
+
+TravelPackage --> Destination
+Destination --> Activity
+Activity --> Passenger
+@enduml
+
